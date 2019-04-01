@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main Survey</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav>
+        <h1>Survey Questions</h1>
+
+    </nav>
+    <hr>
+    <div class="container">
+        <div class="main-content">
+            <h1>About You</h1>
+            <form action="/action_page.php">
+
+                Name (Required):<br><br>
+                <input id="userName" type="text" name="firstname" size="100%">
+                <br><br>
+
+                Link to Photo Image (Required):<br><br>
+                <input id="photo" type="text" name="photos" size="100%">
+                <br><br>
+
+                <h1>Qustion 1</h1>
+                <h3>Your mind is always buzzing with unexplored ideas and plans.</h3>
+                <select id="q1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <h1>Qustion 2</h1>
+                <h3>Generally speaking, you rely more on your experience than your imagination.</h3>
+                <select id="q2">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <h1>Qustion 3</h1>
+                <h3>You find it easy to stay relaxed and focused even when there is some pressure.</h3>
+                <select id="q3">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3`">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <h1>Qustion 4</h1>
+                <h3>People can rarely upset you.</h3>
+                <select id="q4">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <h1>Qustion 5</h1>
+                <h3>You rarely do something just out of sheer curiosity.</h3>
+                <select id="q5">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </form>
+        </div>
+    </div>
+
+    <button id="submit-form">submit</button>
+
+
+
+
+
+
+
+
+
+</body>
+<script>
+
+
+    $("#submit-form").on("click", function () {
+
+        event.preventDefault();
+        let newUser =
+        {
+            "name": $("#userName").val(),
+            "photo": $("#photo").val(),
+            "scores": [
+
+                q1 = $("#q1").val(),
+                q2 = $("#q2").val(),
+                q3 = $("#q3").val(),
+                q4 = $("#q4").val(),
+                q5 = $("#q5").val(),
+
+
+            ]
+        }
+        $.ajax(
+            {
+                url: "api/friends",
+                method: "POST",
+                data: newUser
+            }
+        ).then(function (response) {
+            console.log(response);
+            // fs.writeFile(response , function(err, data) {
+            //     if (err) console.log(err);
+            //     console.log("Successfully Written to File.")
+            // })
+            module.exports = newUser
+        })
+
+        console.log(newUser);
+    });
+</script>
+
+
+</html>
