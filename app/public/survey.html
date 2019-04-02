@@ -116,7 +116,7 @@
         }
         $.ajax(
             {
-                url: "api/friends",
+                url: "/api/friends",
                 method: "POST",
                 data: newUser
             }
@@ -126,10 +126,10 @@
             //     if (err) console.log(err);
             //     console.log("Successfully Written to File.")
             // })
-            module.exports = newUser
-        })
 
-        console.log(newUser);
+
+        })
+        alert(app);
     });
 </script>
 

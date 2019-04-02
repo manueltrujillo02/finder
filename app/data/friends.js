@@ -9,11 +9,7 @@ const friends =[
         4,
         4,
         5,
-        1,
-        2,
-        5,
-        4,
-        1
+      
       ]
   },
   {
@@ -24,12 +20,7 @@ const friends =[
         2,
         4,
         4,
-        5,
-        1,
-        2,
-        3,
-        4,
-        1
+        5
       ]
 
   },
@@ -42,17 +33,21 @@ const friends =[
         4,
         2,
         5,
-        1,
-        2,
-        3,
-        4,
-        1
+
       ]
 
   }
 ]
+var answers = 0;
 for ( var i = 0; i < friends.length; i++){
-  console.log(friends[i].scores)
+
+  var answers = friends[i].scores
+  
+
+console.log(answers)
+
+  // console.log(friends[i].scores)
+
 }
   // var ans = [
 
